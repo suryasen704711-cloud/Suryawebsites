@@ -1,287 +1,1074 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Surya | Skills & Contact</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  color:#f8fafc;
-  background:#050816;
-  line-height:1.6;
-}
-a{text-decoration:none;color:inherit}
-header{
-  position:fixed;top:0;left:0;width:100%;z-index:10;
-  background:rgba(5,8,22,.82);backdrop-filter:blur(15px);
-  border-bottom:1px solid rgba(255,255,255,.1)
-}
-nav{
-  max-width:1100px;margin:auto;padding:16px 22px;
-  display:flex;justify-content:space-between;align-items:center
-}
-.logo{font-size:25px;font-weight:900;color:#22d3ee}
-.logo span{color:#fff}
-nav ul{display:flex;gap:24px;list-style:none}
-nav a{color:#cbd5e1;font-weight:700;font-size:14px}
-nav a:hover{color:#22d3ee}
-.menu{display:none;background:none;border:0;color:#fff;font-size:28px}
-.hero{
-  min-height:100vh;max-width:1100px;margin:auto;padding:125px 22px 70px;
-  display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center
-}
-.badge{
-  display:inline-block;padding:8px 15px;border-radius:30px;
-  color:#67e8f9;background:rgba(34,211,238,.08);
-  border:1px solid rgba(34,211,238,.3);margin-bottom:20px
-}
-h1{font-size:clamp(50px,7vw,82px);line-height:1.02}
-.gradient{
-  background:linear-gradient(90deg,#22d3ee,#8b5cf6,#ec4899);
-  -webkit-background-clip:text;background-clip:text;color:transparent
-}
-.hero h2{margin:18px 0;color:#cbd5e1;font-size:25px}
-.hero p{color:#94a3b8;font-size:17px;max-width:600px}
-.buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
-.btn{
-  padding:13px 22px;border-radius:10px;font-weight:800;
-  border:1px solid rgba(255,255,255,.15)
-}
-.primary{background:linear-gradient(135deg,#22d3ee,#7c3aed)}
-.secondary{background:rgba(255,255,255,.05)}
-.primary:hover,.secondary:hover{transform:translateY(-3px)}
-.photo-wrap{display:flex;justify-content:center}
-.photo-frame{
-  width:min(390px,85vw);aspect-ratio:1/1;border-radius:50%;padding:7px;
-  background:conic-gradient(#22d3ee,#7c3aed,#ec4899,#22d3ee);
-  box-shadow:0 0 65px rgba(34,211,238,.2)
-}
-.photo-frame img{
-  width:100%;height:100%;object-fit:cover;object-position:center top;
-  border-radius:50%;display:block;background:#111827
-}
-section{padding:90px 22px}
-.container{max-width:1100px;margin:auto}
-.title{text-align:center;margin-bottom:45px}
-.title small{color:#22d3ee;text-transform:uppercase;letter-spacing:3px;font-weight:800}
-.title h2{font-size:42px;margin:8px 0}
-.title p{color:#94a3b8}
-.about{
-  display:grid;grid-template-columns:1fr 1fr;gap:25px
-}
-.card{
-  padding:30px;border-radius:20px;background:rgba(255,255,255,.045);
-  border:1px solid rgba(255,255,255,.09)
-}
-.card h3{color:#67e8f9;margin-bottom:14px;font-size:23px}
-.card p{color:#94a3b8}
-.skills{
-  display:grid;grid-template-columns:1fr 1fr;gap:20px
-}
-.skill{
-  padding:22px;border-radius:16px;background:rgba(255,255,255,.045);
-  border:1px solid rgba(255,255,255,.08)
-}
-.skill-top{display:flex;justify-content:space-between;margin-bottom:10px}
-.skill-top span:last-child{color:#22d3ee;font-weight:800}
-.bar{height:9px;border-radius:20px;background:#1e293b;overflow:hidden}
-.fill{height:100%;border-radius:20px;background:linear-gradient(90deg,#22d3ee,#7c3aed)}
-.services{
-  margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px
-}
-.service{
-  padding:28px;border-radius:18px;background:rgba(255,255,255,.045);
-  border:1px solid rgba(255,255,255,.08)
-}
-.service .icon{font-size:36px}.service h3{margin:10px 0}.service p{color:#94a3b8}
-.contact{
-  display:grid;grid-template-columns:.8fr 1.2fr;gap:25px
-}
-.info,.form{
-  padding:30px;border-radius:20px;background:rgba(255,255,255,.045);
-  border:1px solid rgba(255,255,255,.09)
-}
-.info h3{color:#22d3ee;margin-bottom:15px}
-.info-row{padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08);color:#cbd5e1}
-input,textarea{
-  width:100%;padding:14px;margin-bottom:14px;border-radius:10px;
-  border:1px solid rgba(255,255,255,.12);background:#0b1224;color:#fff;outline:none
-}
-input:focus,textarea:focus{border-color:#22d3ee}
-textarea{min-height:150px;resize:vertical}
-button.send{
-  width:100%;padding:14px;border:0;border-radius:10px;
-  background:linear-gradient(135deg,#22d3ee,#7c3aed);color:#fff;
-  font-weight:800;cursor:pointer
-}
-footer{
-  text-align:center;padding:32px 20px;border-top:1px solid rgba(255,255,255,.08);
-  color:#64748b
-}
-footer strong{color:#22d3ee}
-@media(max-width:800px){
-  nav ul{display:none;position:absolute;top:65px;left:0;width:100%;
-    flex-direction:column;align-items:center;padding:22px;background:#050816}
-  nav ul.open{display:flex}.menu{display:block}
-  .hero,.about,.contact{grid-template-columns:1fr;text-align:center}
-  .hero p{margin:auto}.buttons{justify-content:center}.photo-wrap{order:-1}
-  .skills{grid-template-columns:1fr}.services{grid-template-columns:1fr}
-  .title h2{font-size:35px}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Surya | Web Developer & Designer</title>
+
+    <meta name="description"
+          content="Surya - Web Developer, Designer, Game Developer and Portfolio Website Creator">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #080b14;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(8, 11, 20, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #00eaff;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00eaff;
+        }
+
+        .menu {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* ================= HERO ================= */
+
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 110px 8% 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #home::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: #00eaff;
+            filter: blur(180px);
+            opacity: 0.12;
+            right: -150px;
+            top: 100px;
+        }
+
+        .hero {
+            width: 1200px;
+            max-width: 100%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-text h4 {
+            color: #00eaff;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(45px, 7vw, 80px);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: #00eaff;
+        }
+
+        .hero-text h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #cfd4df;
+        }
+
+        .hero-text p {
+            color: #aeb5c5;
+            font-size: 17px;
+            line-height: 1.8;
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .primary {
+            background: #00eaff;
+            color: #061018;
+        }
+
+        .primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,234,255,0.3);
+        }
+
+        .secondary {
+            border: 1px solid #00eaff;
+            color: #00eaff;
+        }
+
+        .secondary:hover {
+            background: #00eaff;
+            color: #061018;
+        }
+
+        /* ================= PHOTO ================= */
+
+        .hero-photo {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .photo-container {
+            width: 380px;
+            height: 480px;
+            border-radius: 35px;
+            padding: 5px;
+            background: linear-gradient(135deg, #00eaff, #5b5cff, #00eaff);
+            box-shadow: 0 0 70px rgba(0,234,255,0.15);
+            transform: rotate(2deg);
+            transition: 0.4s;
+        }
+
+        .photo-container:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 31px;
+            display: block;
+        }
+
+        /* ================= GENERAL ================= */
+
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+        }
+
+        .section-title span {
+            color: #00eaff;
+        }
+
+        .section-title p {
+            margin-top: 12px;
+            color: #9ba3b4;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about p {
+            color: #b8bfce;
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 800px;
+            margin: 45px auto 0;
+        }
+
+        .stat {
+            background: #101522;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .stat h3 {
+            color: #00eaff;
+            font-size: 35px;
+        }
+
+        .stat p {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            background: #101522;
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.07);
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-8px);
+            border-color: #00eaff;
+            box-shadow: 0 15px 35px rgba(0,234,255,0.08);
+        }
+
+        .skill-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .skill h3 {
+            margin-bottom: 10px;
+        }
+
+        .skill p {
+            color: #969eaf;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ================= SERVICES ================= */
+
+        .services-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service {
+            background: linear-gradient(145deg, #111827, #0b0f19);
+            border-radius: 25px;
+            padding: 35px;
+            border: 1px solid rgba(255,255,255,0.07);
+            transition: 0.3s;
+        }
+
+        .service:hover {
+            transform: translateY(-10px);
+            border-color: #00eaff;
+        }
+
+        .service .icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .service h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .service p {
+            color: #9fa7b8;
+            line-height: 1.7;
+        }
+
+        /* ================= PROJECTS ================= */
+
+        .projects {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: #101522;
+            padding: 30px;
+            border-radius: 22px;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: #00eaff;
+        }
+
+        .project-top {
+            height: 150px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #00eaff, #5758ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 55px;
+            margin-bottom: 22px;
+        }
+
+        .project h3 {
+            margin-bottom: 12px;
+        }
+
+        .project p {
+            color: #969eaf;
+            line-height: 1.6;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #182131;
+            color: #00eaff;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact-box {
+            max-width: 850px;
+            margin: auto;
+            background: #101522;
+            border-radius: 25px;
+            padding: 45px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .contact-box h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: #9ca5b7;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            background: #181f2d;
+            padding: 13px 20px;
+            border-radius: 30px;
+            color: #dce2ec;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: #7e8798;
+        }
+
+        footer span {
+            color: #00eaff;
+        }
+
+        /* ================= SCROLL ANIMATION ================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.8s;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 900px) {
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .hero-photo {
+                order: -1;
+            }
+
+            .photo-container {
+                width: 280px;
+                height: 360px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid,
+            .projects {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            nav ul {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #0b0f19;
+                display: none;
+                flex-direction: column;
+                text-align: center;
+                padding: 25px;
+                gap: 20px;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .menu {
+                display: block;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .hero-text h1 {
+                font-size: 48px;
+            }
+
+            .hero-text h2 {
+                font-size: 22px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid,
+            .services-grid,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
+<!-- ================= NAVBAR ================= -->
+
 <header>
-<nav>
-  <a class="logo" href="#home">SURYA<span>.</span></a>
-  <button class="menu" onclick="toggleMenu()">â˜°</button>
-  <ul id="nav">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+    <nav>
+        <div class="logo">SURYA<span>.</span></div>
+
+        <div class="menu" onclick="toggleMenu()">☰</div>
+
+        <ul id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 </header>
 
-<section class="hero" id="home">
-  <div>
-    <span class="badge">ðŸ‘‹ Welcome to Surya's Website</span>
-    <h1>Hello, I'm <span class="gradient">Surya</span></h1>
-    <h2>Web Developer â€¢ Designer â€¢ Creator</h2>
-    <p>
-      Welcome to my personal website. I enjoy creating websites, interactive
-      projects, games and modern digital experiences.
-    </p>
-    <div class="buttons">
-      <a class="btn primary" href="#skills">View My Skills</a>
-      <a class="btn secondary" href="#contact">Contact Surya</a>
+
+<!-- ================= HOME ================= -->
+
+<section id="home">
+
+    <div class="hero">
+
+        <div class="hero-text">
+
+            <h4>Hello, I'm</h4>
+
+            <h1>Surya <span>Sen</span></h1>
+
+            <h2>Web Developer • Designer • Game Creator</h2>
+
+            <p>
+                I create modern websites, creative portfolios and
+                interactive games. I love turning ideas into beautiful,
+                responsive and user-friendly digital experiences.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn primary">
+                    View My Work
+                </a>
+
+                <a href="#contact" class="btn secondary">
+                    Contact Me
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="hero-photo">
+
+            <div class="photo-container">
+
+                <img src="surya.jpg.jpg" alt="Surya">
+
+            </div>
+
+        </div>
+
     </div>
-  </div>
-  <div class="photo-wrap">
-    <div class="photo-frame">
-      <img src="surya.jpg" alt="Surya">
-    </div>
-  </div>
+
 </section>
+
+
+<!-- ================= ABOUT ================= -->
 
 <section id="about">
-<div class="container">
-  <div class="title">
-    <small>About</small>
-    <h2>About Surya</h2>
-    <p>A simple introduction and personal profile.</p>
-  </div>
-  <div class="about">
-    <div class="card">
-      <h3>ðŸš€ Who I Am</h3>
-      <p>
-        I am Surya, a technology enthusiast interested in web development,
-        creative design and interactive projects. I like learning new
-        technologies and turning ideas into working websites.
-      </p>
+
+    <div class="section-title reveal">
+
+        <h2>About <span>Me</span></h2>
+
+        <p>Creative developer with a passion for technology</p>
+
     </div>
-    <div class="card">
-      <h3>ðŸ“‹ My Details</h3>
-      <p><strong>Name:</strong> Surya</p>
-      <p><strong>Role:</strong> Web Developer / Creator</p>
-      <p><strong>Location:</strong> India</p>
-      <p><strong>Interests:</strong> Websites, Games, Technology & Design</p>
+
+
+    <div class="about reveal">
+
+        <p>
+            Hi! I'm <strong>Surya</strong>, a passionate Web Developer
+            and Designer. I enjoy creating modern websites, portfolio
+            websites and browser-based games. My goal is to build
+            websites that look great, work smoothly and provide an
+            enjoyable experience on both computers and mobile devices.
+        </p>
+
+
+        <div class="stats">
+
+            <div class="stat">
+                <h3>Web</h3>
+                <p>Development</p>
+            </div>
+
+            <div class="stat">
+                <h3>UI</h3>
+                <p>Design</p>
+            </div>
+
+            <div class="stat">
+                <h3>3D</h3>
+                <p>Game Projects</p>
+            </div>
+
+        </div>
+
     </div>
-  </div>
-</div>
+
 </section>
+
+
+<!-- ================= SKILLS ================= -->
 
 <section id="skills">
-<div class="container">
-  <div class="title">
-    <small>Skills</small>
-    <h2>Surya's Skills</h2>
-    <p>Core areas I work on and continue to improve.</p>
-  </div>
 
-  <div class="skills">
-    <div class="skill"><div class="skill-top"><span>HTML5</span><span>95%</span></div><div class="bar"><div class="fill" style="width:95%"></div></div></div>
-    <div class="skill"><div class="skill-top"><span>CSS3</span><span>90%</span></div><div class="bar"><div class="fill" style="width:90%"></div></div></div>
-    <div class="skill"><div class="skill-top"><span>JavaScript</span><span>80%</span></div><div class="bar"><div class="fill" style="width:80%"></div></div></div>
-    <div class="skill"><div class="skill-top"><span>Responsive Design</span><span>90%</span></div><div class="bar"><div class="fill" style="width:90%"></div></div></div>
-    <div class="skill"><div class="skill-top"><span>UI Design</span><span>85%</span></div><div class="bar"><div class="fill" style="width:85%"></div></div></div>
-    <div class="skill"><div class="skill-top"><span>Game Development</span><span>75%</span></div><div class="bar"><div class="fill" style="width:75%"></div></div></div>
-    <div class="skill"><div class="skill-top"><span>Problem Solving</span><span>85%</span></div><div class="bar"><div class="fill" style="width:85%"></div></div></div>
-    <div class="skill"><div class="skill-top"><span>Creative Design</span><span>88%</span></div><div class="bar"><div class="fill" style="width:88%"></div></div></div>
-  </div>
-</div>
+    <div class="section-title reveal">
+
+        <h2>My <span>Skills</span></h2>
+
+        <p>Technologies and creative skills I use</p>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+        <div class="skill reveal">
+            <div class="skill-icon">🌐</div>
+            <h3>HTML</h3>
+            <p>Building responsive and structured websites.</p>
+        </div>
+
+        <div class="skill reveal">
+            <div class="skill-icon">🎨</div>
+            <h3>CSS</h3>
+            <p>Creating modern layouts, animations and designs.</p>
+        </div>
+
+        <div class="skill reveal">
+            <div class="skill-icon">⚡</div>
+            <h3>JavaScript</h3>
+            <p>Adding interactive features and functionality.</p>
+        </div>
+
+        <div class="skill reveal">
+            <div class="skill-icon">🎮</div>
+            <h3>Game Development</h3>
+            <p>Creating fun browser games and interactive experiences.</p>
+        </div>
+
+        <div class="skill reveal">
+            <div class="skill-icon">📱</div>
+            <h3>Responsive Design</h3>
+            <p>Websites that work beautifully on mobile and desktop.</p>
+        </div>
+
+        <div class="skill reveal">
+            <div class="skill-icon">💡</div>
+            <h3>UI/UX</h3>
+            <p>Designing simple and user-friendly interfaces.</p>
+        </div>
+
+        <div class="skill reveal">
+            <div class="skill-icon">🖥️</div>
+            <h3>Portfolio Websites</h3>
+            <p>Professional personal and portfolio websites.</p>
+        </div>
+
+        <div class="skill reveal">
+            <div class="skill-icon">🚀</div>
+            <h3>Creative Projects</h3>
+            <p>Turning creative ideas into working digital projects.</p>
+        </div>
+
+    </div>
+
 </section>
+
+
+<!-- ================= SERVICES ================= -->
 
 <section id="services">
-<div class="container">
-  <div class="title">
-    <small>What I Do</small>
-    <h2>Surya's Services</h2>
-    <p>Digital projects I can build and customize.</p>
-  </div>
-  <div class="services">
-    <div class="service"><div class="icon">ðŸŒ</div><h3>Website Development</h3><p>Responsive websites using HTML, CSS and JavaScript.</p></div>
-    <div class="service"><div class="icon">ðŸŽ®</div><h3>HTML Games</h3><p>Browser games such as racing, snake and interactive games.</p></div>
-    <div class="service"><div class="icon">ðŸŽ¨</div><h3>Web Design</h3><p>Modern layouts, animations and attractive user interfaces.</p></div>
-    <div class="service"><div class="icon">ðŸ“±</div><h3>Mobile Design</h3><p>Websites that work smoothly on phones, tablets and computers.</p></div>
-    <div class="service"><div class="icon">ðŸ’»</div><h3>Frontend Projects</h3><p>Clean and interactive frontend projects for the browser.</p></div>
-    <div class="service"><div class="icon">âš¡</div><h3>Creative Projects</h3><p>Unique educational and technology projects created by Surya.</p></div>
-  </div>
-</div>
+
+    <div class="section-title reveal">
+
+        <h2>What I <span>Do</span></h2>
+
+        <p>My main development and design services</p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+        <div class="service reveal">
+
+            <div class="icon">💻</div>
+
+            <h3>Web Development</h3>
+
+            <p>
+                I create fast, responsive and modern websites
+                using HTML, CSS and JavaScript.
+            </p>
+
+        </div>
+
+
+        <div class="service reveal">
+
+            <div class="icon">🎨</div>
+
+            <h3>Web Design</h3>
+
+            <p>
+                I design clean, attractive and user-friendly
+                interfaces for websites and portfolios.
+            </p>
+
+        </div>
+
+
+        <div class="service reveal">
+
+            <div class="icon">🎮</div>
+
+            <h3>Game Development</h3>
+
+            <p>
+                I create browser games including racing games,
+                arcade games and interactive projects.
+            </p>
+
+        </div>
+
+    </div>
+
 </section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects">
+
+    <div class="section-title reveal">
+
+        <h2>My <span>Projects</span></h2>
+
+        <p>Some of my creative project ideas</p>
+
+    </div>
+
+
+    <div class="projects">
+
+        <div class="project reveal">
+
+            <div class="project-top">🎮</div>
+
+            <h3>3D Car Racing Game</h3>
+
+            <p>
+                An interactive browser racing game with
+                mobile-friendly controls.
+            </p>
+
+            <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Game</span>
+            </div>
+
+        </div>
+
+
+        <div class="project reveal">
+
+            <div class="project-top">🐍</div>
+
+            <h3>Snake Game</h3>
+
+            <p>
+                A fun classic snake game redesigned with
+                a modern interface and responsive controls.
+            </p>
+
+            <div class="tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">Game</span>
+                <span class="tag">Mobile</span>
+            </div>
+
+        </div>
+
+
+        <div class="project reveal">
+
+            <div class="project-top">🌐</div>
+
+            <h3>Portfolio Website</h3>
+
+            <p>
+                A professional portfolio website for displaying
+                skills, projects and contact information.
+            </p>
+
+            <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Responsive</span>
+            </div>
+
+        </div>
+
+
+        <div class="project reveal">
+
+            <div class="project-top">💰</div>
+
+            <h3>Expense Manager</h3>
+
+            <p>
+                A modern expense management interface for
+                tracking monthly spending.
+            </p>
+
+            <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+            </div>
+
+        </div>
+
+
+        <div class="project reveal">
+
+            <div class="project-top">🏫</div>
+
+            <h3>University Website</h3>
+
+            <p>
+                A professional university website concept with
+                departments, courses and information sections.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Web Design</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+            </div>
+
+        </div>
+
+
+        <div class="project reveal">
+
+            <div class="project-top">🚀</div>
+
+            <h3>Creative Web Projects</h3>
+
+            <p>
+                Experimental websites and interactive projects
+                created to learn and explore new ideas.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Creative</span>
+                <span class="tag">Web</span>
+                <span class="tag">Design</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
 
 <section id="contact">
-<div class="container">
-  <div class="title">
-    <small>Contact</small>
-    <h2>Contact Surya</h2>
-    <p>Send a message using the form below.</p>
-  </div>
-  <div class="contact">
-    <div class="info">
-      <h3>ðŸ“ž Contact Details</h3>
-      <div class="info-row">ðŸ‘¤ <strong>Name:</strong> Surya</div>
-      <div class="info-row">ðŸ“ <strong>Location:</strong> India</div>
-      <div class="info-row">ðŸ’» <strong>Role:</strong> Web Developer</div>
-      <div class="info-row">ðŸ“§ <strong>Email:</strong> Add your email</div>
-      <div class="info-row">ðŸ“± <strong>Phone:</strong> Add your phone number</div>
+
+    <div class="section-title reveal">
+
+        <h2>Contact <span>Surya</span></h2>
+
+        <p>Let's create something amazing together</p>
+
     </div>
-    <div class="form">
-      <form onsubmit="sendMessage(event)">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <input type="text" placeholder="Subject" required>
-        <textarea placeholder="Write your message..." required></textarea>
-        <button class="send" type="submit">SEND MESSAGE ðŸš€</button>
-      </form>
+
+
+    <div class="contact-box reveal">
+
+        <h2>Let's Work Together 🚀</h2>
+
+        <p>
+            Have an idea for a website, portfolio or game?
+            Feel free to contact me.
+        </p>
+
+        <div class="contact-info">
+
+            <div class="contact-item">
+                👨‍💻 Surya Sen
+            </div>
+
+            <div class="contact-item">
+                🌐 Web Developer
+            </div>
+
+            <div class="contact-item">
+                🎮 Game Creator
+            </div>
+
+        </div>
+
+        <!-- Change this email to your real email -->
+        <a
+            href="mailto:your-email@example.com"
+            class="btn primary">
+            📧 Email Me
+        </a>
+
     </div>
-  </div>
-</div>
+
 </section>
 
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
-  <p>Â© 2026 <strong>Surya</strong> â€” All Rights Reserved</p>
-  <p>Designed & Created by <strong>Surya</strong></p>
+
+    <p>
+        © 2026 <span>Surya</span>.
+        Designed & Developed by <span>Surya</span>.
+    </p>
+
 </footer>
 
+
+<!-- ================= JAVASCRIPT ================= -->
+
 <script>
-function toggleMenu(){
-  document.getElementById("nav").classList.toggle("open");
-}
-document.querySelectorAll("#nav a").forEach(a=>{
-  a.addEventListener("click",()=>document.getElementById("nav").classList.remove("open"));
-});
-function sendMessage(e){
-  e.preventDefault();
-  alert("Thank you! Your message has been received.");
-  e.target.reset();
-}
+
+    /* Mobile Menu */
+
+    function toggleMenu() {
+
+        document
+            .getElementById("navLinks")
+            .classList.toggle("show");
+
+    }
+
+
+    /* Close mobile menu after clicking */
+
+    document.querySelectorAll("#navLinks a").forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            document
+                .getElementById("navLinks")
+                .classList.remove("show");
+
+        });
+
+    });
+
+
+    /* Scroll Reveal Animation */
+
+    function revealOnScroll() {
+
+        const reveals = document.querySelectorAll(".reveal");
+
+        reveals.forEach(function(element) {
+
+            const windowHeight = window.innerHeight;
+
+            const elementTop =
+                element.getBoundingClientRect().top;
+
+            if (elementTop < windowHeight - 80) {
+
+                element.classList.add("active");
+
+            }
+
+        });
+
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+
+    revealOnScroll();
+
 </script>
+
 </body>
 </html>
